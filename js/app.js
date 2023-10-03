@@ -162,7 +162,10 @@ const inventors = [
   
   // Array.prototype.find()
   // 4. Find the inventor object with the first name of 'Ada'
-  
+    const result = inventors.find(function(inventor) {
+        return inventor.startsWith('A');
+    }); 
+
   
   
   // Array.prototype.reduce()
@@ -190,7 +193,10 @@ const inventors = [
   // Array.prototype.map()
   // 6. Map the people array such that the new array consists of strings with the names formatted as "First Last", e.g., "Becker, Carl" should be mapped to "Carl Becker".
   // Hint: As a start, consider using the String.prototype.split method to "split" the string using ', ' as the separator
-  
+    const firstLastPeople = people.map((person) => {
+    const splitArray = person.split(' , ')
+    return splitArray.reverse().join(' ')
+    })
   
   
   
@@ -202,7 +208,14 @@ const inventors = [
   // Array.prototype.reduce()
   // 7. Count the number of instances for each of the data items. The reduce should return an object where the keys are 'car', 'truck', etc. and the values are the count.
   // Hint: Since you want to return an object, be sure to pass an empty {} for the initial value of the "accumulator".
-  
+// did not quite understand how to do this one.
+    const transportation = data.reduce(function(obj, item) {
+        if (!obj[item]) {
+            obj[item] = 0;
+        }
+        obj[item]++;
+        return obj;
+    }, {});
   
   
   const devs = [
@@ -240,17 +253,17 @@ const inventors = [
   
   // Array.prototype.find()
   // 10. Find the comment with the id of 823423
-    const comment = comments.find(function (comment) {
+    let comment = comments.find(function (comment) {
         if (comment.id === 823423) {
             return true;
         }
     });
     console.log(comment);
-  
-  
+    
   // Array.prototype.findIndex()
   // 11. Find the index of the comment with an id of 123523
-  
-  
+    
+    const index = comments.findIndex(comment => comment.id = 123523);
+    console.log(index);
   
   
